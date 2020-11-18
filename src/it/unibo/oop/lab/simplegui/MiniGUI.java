@@ -1,6 +1,3 @@
-/**
- * 
- */
 package it.unibo.oop.lab.simplegui;
 
 import java.awt.BorderLayout;
@@ -45,8 +42,8 @@ public class MiniGUI {
         final JPanel panel = new JPanel();
         final JTextField result = new JTextField("Result");
         panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS));
-        panel.add(write);
         canvas.add(panel, BorderLayout.CENTER);
+        panel.add(write);
         canvas.add(result, BorderLayout.NORTH);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,7 +53,7 @@ public class MiniGUI {
         write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                System.out.println(rng.nextInt());
+                result.setText("Result = " + rng.nextInt());
             }
         });
     }
