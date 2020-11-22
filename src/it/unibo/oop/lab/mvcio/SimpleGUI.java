@@ -1,9 +1,15 @@
 package it.unibo.oop.lab.mvcio;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  * A very simple program using a graphical interface.
@@ -11,7 +17,7 @@ import javax.swing.JFrame;
  */
 public final class SimpleGUI {
 
-    private final JFrame frame = new JFrame();
+    private final JFrame frame = new JFrame("SimpleGUI");
 
     /*
      * Once the Controller is done, implement this class in such a way that:
@@ -31,12 +37,10 @@ public final class SimpleGUI {
      * pressed.
      * 
      * Use "ex02.png" (in the res directory) to verify the expected aspect.
+     *
      */
-
-    /**
-     * builds a new {@link SimpleGUI}.
-     */
-    public SimpleGUI() {
+    
+    public SimpleGUI(final Controller ctrl) {
         /*
          * Make the frame half the resolution of the screen. This very method is
          * enough for a single screen setup. In case of multiple monitors, the
@@ -57,6 +61,27 @@ public final class SimpleGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
+        
+        final JPanel panel = new JPanel();
+        final JTextArea textArea = new JTextArea();
+        final JButton button = new JButton("Save");
+        panel.setLayout(new BorderLayout());
+        panel.add(textArea, BorderLayout.NORTH);
+        panel.add(button, BorderLayout.SOUTH);
+        frame.setContentPane(panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent event) {
+                   ctrl.writeOnFile(textArea.getText());
+            }
+        });
+    }
+    public void display() {
+        frame.setVisible(true);
+    }
+    public static void main(final String... args) {
+        new SimpleGUI(new Controller()).display();
     }
 
 }
