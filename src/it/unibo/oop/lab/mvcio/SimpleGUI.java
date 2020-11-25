@@ -77,7 +77,7 @@ public final class SimpleGUI {
             }
         });
     }
-    public void display() {
+    private void display() {
         frame.setVisible(true);
     }
     public static void main(final String... args) {
