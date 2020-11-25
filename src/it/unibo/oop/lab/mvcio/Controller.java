@@ -35,7 +35,7 @@ public class Controller {
     public void setCurrentFile(final File file) {
         this.currentFile = file;
     }
-    public File getCurrentFile(final File file) {
+    public File getCurrentFile() {
         return this.currentFile;
     }
     public String getPath() {
