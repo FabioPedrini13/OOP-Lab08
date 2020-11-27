@@ -12,6 +12,7 @@ public class ControllerImpl implements Controller {
         this.history = new ArrayList<>();
     }
 
+    @Override
     public void setNext(final String s) {
         if (s != null) {
             this.nextString = s;
@@ -20,14 +21,17 @@ public class ControllerImpl implements Controller {
         }
     }
 
+    @Override
     public String getNext() {
         return this.nextString;
     }
 
+    @Override
     public List<String> getHistory() {
         return this.history;
     }
 
+    @Override
     public void printString() {
         if (this.nextString != null) {
             System.out.println(this.nextString);
