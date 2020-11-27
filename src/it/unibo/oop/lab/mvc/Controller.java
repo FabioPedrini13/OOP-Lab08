@@ -17,15 +17,15 @@ public interface Controller {
      * 1) A method for setting the next string to print. Null values are not
      * acceptable, and an exception should be produced
      */
-    public void setNext(final String s);
+    void setNext(String s);
     // 2) A method for getting the next string to print
-    public String getNext();
+    String getNext();
     /* 3) A method for getting the history of the printed strings (in form of a List
      * of Strings)
      */
-    public List<String> getHistory();
+    List<String> getHistory();
     /* 4) A method that prints the current string. If the current string is unset,
      * an IllegalStateException should be thrown 
      */
-    public void printString();
+    void printString();
 }
