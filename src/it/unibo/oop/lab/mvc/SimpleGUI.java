@@ -41,10 +41,6 @@ public final class SimpleGUI {
      * have been done to this moment in the text area.
      * 
      */
-
-    /**
-     * builds a new {@link SimpleGUI}.
-     */
     public SimpleGUI(final ControllerImpl ctrl) {
         final JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
